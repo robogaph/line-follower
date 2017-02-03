@@ -1,0 +1,67 @@
+//Code for line Follower
+// Left Motor1=3;
+// Left Motor2=4;
+// Right Motor1=5;
+// Right Motor2=6;
+void setup() {
+pinMode(4,OUTPUT); // Making 4th pin as OUTPUT
+pinMode(5,OUTPUT);
+pinMode(9,OUTPUT);
+pinMode(10,OUTPUT);
+pinMode(A0,INPUT); // Making A0 pin as INPUT
+pinMode(A1,INPUT);
+pinMode(A2,INPUT);
+pinMode(A3,INPUT);
+pinMode(A4,INPUT);
+}
+void loop() {
+ int S1=digitalRead(A0); //Assigning Value of Analog Pin A0 to integer variable S1
+ int S2=digitalRead(A1);
+ int S3=digitalRead(A2);
+ int S4=digitalRead(A3);
+ int S5=digitalRead(A4);
+
+if((S1==1)&&(S2==1)&&(S3==0)&&(S4==1)&&(S5==1))
+{ // forward
+ digitalWrite(3,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(6,HIGH);
+}
+if((S1==1)&&(S2==1)&&(S3==1)&&(S4==1)&&(S5==1))
+{ //stop
+ digitalWrite(3,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(6,LOW);
+}
+if((S1==1)&&(S2==0)&&(S3==0)&&(S4==1)&&(S5==1))
+{ //left
+ digitalWrite(3,LOW);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(6,HIGH);
+}
+if((S1==0)&&(S2==0)&&(S3==0)&&(S4==1)&&(S5==1))
+{ //sharp left
+ digitalWrite(3,LOW);
+ digitalWrite(4,HIGH);
+ digitalWrite(5,LOW);
+ digitalWrite(6,HIGH);
+}
+if((S1==1)&&(S2==1)&&(S3==0)&&(S4==0)&&(S5==1))
+{ //right
+ digitalWrite(3,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,LOW);
+ digitalWrite(6,LOW);
+}
+if((S1==1)&&(S2==1)&&(S3==0)&&(S4==0)&&(S5==0))
+{ //sharp right
+ digitalWrite(3,HIGH);
+ digitalWrite(4,LOW);
+ digitalWrite(5,HIGH);
+ digitalWrite(6,LOW);
+}
+
+}
